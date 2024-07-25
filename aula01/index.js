@@ -1,7 +1,7 @@
 // PROTOTYPER
 
 const animal = function(){
-
+animal.prototype = "prototyper-pai"
 this.tipo = "vazil"
 this.genero = "vazil"
 this.descrever = function( teste){
@@ -12,18 +12,22 @@ this.descrever = function( teste){
 
 
 const gatos = function( tipo , dois){
-    const gato = new animal()
     this.tipo = tipo
-    this.genero = dois
-    Object.setPrototypeOf(this, gato)
+   const gatinho  =  new animal()
+   Object.setPrototypeOf(this, gatinho)
 
-   
 }
 
-const gato01 = new gatos("raivoso", "bravo")
-gato01.descrever("deu certo pela segunda vez")
+const gat = new gatos("miau", "miau")
 
-const gato02 = new gatos("raivoso", "bravo")
-gato01.descrever("deu certo pela terceira vez")
+
+gat.descrever()
+
+
+//const gato01 = new gatos("raivoso", "bravo")
+//gato01.descrever("deu certo pela segunda vez")
+
+//const gato02 = new gatos("raivoso", "bravo")
+//gato01.descrever("deu certo pela terceira vez")
 
 
