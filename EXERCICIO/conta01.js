@@ -60,7 +60,7 @@ this.data = datas.toLocaleString("pt-BR",{})
 }
 
 visualiza(){     
-  console.log(`${contaBancaria.name}:\nextrato do dia ${this.data} \nnome: ${this.cliente} \naniversario:${this.aniversario} \npossui saldo de : R$ ${this.saldo}`)
+  console.log(`${contaBancaria.name}:\nextrato do dia ${this.data} \ncliente: ${this.cliente} \naniversario:${this.aniversario} \npossui saldo de : R$ ${this.saldo}`)
 }
 
 }
@@ -73,7 +73,7 @@ class contacorrente extends contaBancaria{
     }
     
     visualiza(){     
-      console.log(`\n\n${contacorrente.name}:\nnome: ${this.cliente} \ncpf: ${this.numero} \npossui saldo de : R$ ${this.saldo},  \nlimite de ${this.limite} `)
+      console.log(`\n\n${contacorrente.name}:\ncliente: ${this.cliente} \npossui saldo de : R$ ${this.saldo},  \nlimite de ${this.limite} `)
   }
 
 }    
@@ -81,42 +81,58 @@ class contacorrente extends contaBancaria{
 
 
 class clinte{
-  constructor(nome, doc , data){
+  constructor(nome, doc, pessoa ){
  if(this.constructor === clinte){
   throw new Error("classe abstrata nao é posivel instanciar, apenas herdar");
+ }
+
+ const dados={
+  nome:nome,
+  doc:doc
+ } 
+const dadosstring = JSON.stringify(dados)
+
+
+ if(pessoa ==="fisica"){
+  
+  const user01 = new contapoupaca( dadosstring , " 06/02/2000")
+  user01.depositar(2000)
+  user01.visualiza()  
+
+} if(pessoa ==="juridica"){
+
+const user02 = new contacorrente(dadosstring)
+user02.depositar(200)
+user02.sacar(50)
+user02.visualiza()
+
+
 }
 
-  this.nome = nome
-  this.doc = doc
-  
-  }
+  } 
 }
 
 class pessoaFisica extends clinte{
 
-  constructor(nome, doccumento){
-super(nome, doccumento)
+  constructor(nome, doccumento,fisica){
+    fisica = "fisica"
+    super(nome, doccumento, fisica )
+
   }
 }
 
 class pessoaJuridica extends clinte{
 
-  constructor(nome, doccumento){
-    super(nome, doccumento)
+  constructor(nome, doccumento,juridica){
+    juridica = "juridica"
+    super(nome, doccumento,juridica)
   }
-
 }
 
 const willy = new pessoaFisica("willy", 70219835225)
+const willy02 = new pessoaJuridica("willy", "8945158/984656")
 
-const user01 = new contapoupaca( willy, " 06/02/2000")
-user01.depositar(2000)
-user01.visualiza()
-
-const user02 = new contacorrente()
-user02.depositar(200)
-user02.sacar(50)
-user02.visualiza()
+const gaby = new pessoaFisica("Gabs",70635476231)
 
 
 
