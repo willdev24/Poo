@@ -1,34 +1,32 @@
 
 const car06 =  (function veiculo(){
 
-this.tpo =[ "popular","espoertivo", "de luxo"]
-this.categoria = "vazil"
+const tipo =[ "popular","esportivo", "de luxo"]
+let categoria = "vazil"
 
 const carro05={
 
 get valiDcategoria(){
-
     
-    return this.categoria
+    return categoria
 },
 
 set valiDcategoria(_tipo){
-    const valor =  this.tpo.indexOf( _tipo)
+    const valor =  tipo.indexOf( _tipo)
 
-    if(!valor >= 0 ){
+    if(valor < 0 ){
         throw new Error("nao esta dentro os requisitos");
-        
     
-    }
-    this.categoria = _tipo
+    }else{
+    categoria = _tipo
+}
 
-}
-}
+}}
 
 return carro05
 } ())
 
-car06.valiDcategoria("popular")
+car06.valiDcategoria = "popular"
 
 
 
