@@ -25,7 +25,12 @@ this.pesoa = _pessoa
   if(!_pessoa == String){
     throw new Error("o valor nao é uma string");
     
-  }else{cadastrados.push(_pessoa)
+  }
+  
+  if(cadastrados.indexOf(_pessoa) < 0)
+    {cadastrados.push(_pessoa)
+  }else{
+    throw new Error("usuario ja cadastrado")
   }
 
 }
@@ -43,5 +48,8 @@ rodar.usuario = "gabs"
 rodar.usuario = "mencia alicy"
 
 rodar.usuario = "Ayra Ariadyna"
+
+
+
 
 
