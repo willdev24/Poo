@@ -2,26 +2,31 @@
 
 const rodar = (function(){
 
-   
+  let cadastrados = []
 
   const pessoas ={
 
 get usuarios(){
-    let cadastrados = ["5","5","5"]
-    pessoas.usuario = this
+    
     return cadastrados
 },
 
 get usuario(){
-    
-  return pessoas.usuarios
+  
+  const ultimo = cadastrados.findIndex(this.pesoa)
 
-return 
+  return ultimo
+
 },
 
 set usuario(_pessoa){
+this.pesoa = _pessoa
 
-  
+  if(!_pessoa == String){
+    throw new Error("o valor nao é uma string");
+    
+  }else{cadastrados.push(_pessoa)
+  }
 
 }
 
@@ -31,7 +36,12 @@ return pessoas
 
 })()
 
-rodar.usuario
+rodar.usuario = "willy "
 
-rodar.usuario
+rodar.usuario = "gabs"
+
+rodar.usuario = "mencia alicy"
+
+rodar.usuario = "Ayra Ariadyna"
+
 
