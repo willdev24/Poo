@@ -66,11 +66,11 @@ class contaBancaria{
 
   visualiza(){  
           
-        if(this.constructor === contapoupaca){
+        if(this.constructor === contapoupaca || this.constructor === contacorrente ){
           throw new Error("esse metodo precisa ser sobrescido");
-        }          
-      //  console.log(`${this.cliente}, numero: ${this.numero} possui saldo de : R$ ${this.saldo}`)
-    }
+        }else{          
+          console.log(`${this.cliente}, numero: ${this.numero} possui saldo de : R$ ${this.saldo}`)
+    }}
 }
 
 
